@@ -1,7 +1,4 @@
-package com.yjp;
-
-import java.io.IOException;
-import java.net.URI;
+package com.mr.wordcount;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileSystem;
@@ -24,25 +21,26 @@ public class WCDriver {
 	
 	public static void main(String[] args) throws Exception {
 		
-		Path inputPath=new Path("D:\\data\\mrinput\\wordcount");
-		Path outputPath=new Path("D:\\data\\mroutput\\wordcount");
+		Path inputPath=new Path("/wordcount");
+		Path outputPath=new Path("/mroutput1/wordcount");
 		
 		/*Path inputPath=new Path("/wordcount");
 		Path outputPath=new Path("/mroutput/wordcount");*/
 		
 		//作为整个Job的配置
 		Configuration conf = new Configuration();
-		
-		/*conf.set("fs.defaultFS", "hdfs://hadoop101:9000");
-		
-		// 在YARN上运行
-		conf.set("mapreduce.framework.name", "yarn");
-		// RM所在的机器
-		conf.set("yarn.resourcemanager.hostname", "hadoop102");*/
-		
+
+
+		conf.set("fs.defaultFS","hdfs://c1:9000");
+
+		/*//在YARN上运行
+		conf.set("mapreduce.framework.name","yarn");
+		//指定RM所在的机器
+		conf.set("yarn.resourcemanager.hostname","c1");*/
+
 		//保证输出目录不存在
 		FileSystem fs=FileSystem.get(conf);
-		
+
 		if (fs.exists(outputPath)) {
 			
 			fs.delete(outputPath, true);

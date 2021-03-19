@@ -1,4 +1,4 @@
-package com.yjp;
+package com.mr.wordcount;
 
 import java.io.IOException;
 

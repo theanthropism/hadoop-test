@@ -63,7 +63,7 @@ public class TestHdfs {
      */
     @Test
     public void testUpload() throws IOException {
-        fs.copyFromLocalFile(false, true, new Path("D:\\软件\\系统\\jdk-8u261-linux-x64.tar.gz"), new Path("/eclipse"));
+        fs.copyFromLocalFile(false, true, new Path("D:\\data\\mrinput"), new Path("/"));
     }
 
     /**
